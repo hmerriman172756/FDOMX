@@ -1,345 +1,501 @@
-:root {
-    --primary-color: #0ff; /* neon cyan */
-    --secondary-color: #f0f; /* neon magenta */
-    --background-color: #111;
-    --text-color: #fff;
-    --accent-color: #00ff99; /* neon green for variety */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FreedomXWallet: A secure, non-custodial crypto wallet for iOS and Android. Manage Bitcoin, Ethereum, NFTs, and more.">
+    <meta name="keywords" content="crypto wallet, non-custodial wallet, Web3, FreedomXWallet, iOS, Android, Bitcoin, Ethereum, NFTs">
+    <meta property="og:title" content="FreedomXWallet - Your Non-Custodial Crypto Wallet">
+    <meta property="og:description" content="Download FreedomXWallet on iOS and Android. Securely manage your cryptocurrencies and NFTs.">
+    <title>FreedomXWallet - Secure Non-Custodial Crypto Wallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0ff; /* Neon cyan */
+            --secondary-color: #f0f; /* Neon magenta */
+            --background-color: #111;
+            --text-color: #fff;
+            --accent-color: #00ff99; /* Neon green */
+            --gradient: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        }
 
-body {
-    font-family: 'Orbitron', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(17, 17, 17, 0.8);
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-}
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(17, 17, 17, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 255, 255, 0.2);
+        }
 
-.logo {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s;
-    filter: drop-shadow(0 0 5px var(--primary-color)) brightness(1.2);
-    border: 2px solid transparent;
-    border-radius: 5px;
-}
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
 
-.logo:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 10px var(--primary-color));
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
 
-.datetime {
-    font-size: 1rem;
-    color: var(--primary-color);
-    margin-left: 1rem;
-    text-shadow: 0 0 5px var(--primary-color);
-}
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-}
+        nav ul li a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--primary-color);
+        }
 
-nav ul li {
-    margin-left: 2rem;
-}
+        section {
+            padding: 2rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-nav ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        #home {
+            background: var(--gradient);
+            text-align: center;
+            position: relative;
+        }
 
-nav ul li a:hover {
-    color: var(--primary-color);
-}
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.2), var(--background-color));
+            z-index: -1;
+        }
 
-#home {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
 
-#home::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0,255,255,0.1) 0%, rgba(0,0,0,0.8) 100%);
-}
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color); }
+            100% { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--secondary-color); }
+        }
 
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
 
-#home h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-}
+        .cta-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            border: none;
+            color: var(--background-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-#home p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
 
-.cta-button {
-    padding: 1rem 2rem;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    border: none;
-    color: var(--background-color);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: transform 0.3s;
-    border-radius: 5px;
-}
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
 
-.cta-button:hover {
-    transform: scale(1.05);
-}
+        .feature-card {
+            background: rgba(34, 34, 34, 0.8);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
 
-.glitch {
-    position: relative;
-    animation: glitch 1s infinite linear alternate-reverse;
-}
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
 
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
-}
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
 
-section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
 
-h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
-}
+        .security-highlights ul {
+            list-style: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 0.5rem auto;
+        }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
+        .security-highlights li {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
 
-.feature-card {
-    background: #222;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: all 0.3s;
-    box-shadow: 0 0 10px rgba(0,255,255,0.2);
-}
+        .security-highlights li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px var(--primary-color);
-}
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
 
-.feature-card i {
-    font-size: 3rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
+        .integration-card {
+            background: rgba(34, 34, 34, 0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
+        .integration-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
 
-.feature-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    margin-top: 1rem;
-    transition: box-shadow 0.3s;
-}
+        .integration-card h3 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
 
-.feature-image:hover {
-    box-shadow: 0 0 15px var(--primary-color);
-}
+        .contact-form {
+            max-width: 600px;
+            margin: 1rem auto;
+        }
 
-.security-highlights ul {
-    list-style: none;
-    text-align: center;
-}
+        .contact-form label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: var(--accent-color);
+        }
 
-.security-highlights li {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    position: relative;
-    padding-left: 2rem;
-}
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.6rem;
+            margin-bottom: 1rem;
+            background: rgba(34, 34, 34, 0.8);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
 
-.security-highlights li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-}
+        .contact-form button {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--gradient);
+            border: none;
+            color: var(--background-color);
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+        }
 
-.swiper-container {
-    max-width: 100%;
-}
+        .contact-form button:hover {
+            opacity: 0.9;
+        }
 
-.swiper-slide {
-    text-align: center;
-}
+        .tos-container {
+            background: rgba(34, 34, 34, 0.8);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
 
-.integration-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    margin-top: 1rem;
-    transition: box-shadow 0.3s;
-}
+        .tos-container h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
 
-.integration-image:hover {
-    box-shadow: 0 0 15px var(--primary-color);
-}
+        .tos-container ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
 
-.swiper-slide img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 10px;
-}
+        .tos-container li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
 
-.swiper-slide h3 {
-    margin-top: 1rem;
-}
+        .tos-container li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
 
-#contact form {
-    max-width: 600px;
-    margin: 0 auto;
-}
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(17, 17, 17, 0.9);
+            border-top: 1px solid var(--primary-color);
+        }
 
-#contact label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
+        footer p, footer a {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            text-decoration: none;
+        }
 
-#contact input, #contact textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1.5rem;
-    background: #222;
-    border: 1px solid var(--primary-color);
-    color: var(--text-color);
-    border-radius: 5px;
-}
+        footer a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
 
-#contact button {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    border: none;
-    color: var(--background-color);
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: opacity 0.3s;
-}
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            header { flex-direction: column; align-items: flex-start; }
+            nav ul { flex-direction: column; gap: 0.8rem; }
+            nav ul li { margin: 0; }
+            section { padding: 1.5rem 1rem; }
+            .features-grid { gap: 1rem; }
+            .integrations-grid { gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-text">FreedomXWallet</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#integrations">Integrations</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#terms">Terms</a></li>
+            </ul>
+        </nav>
+    </header>
 
-#contact button:hover {
-    opacity: 0.9;
-}
+    <section id="home">
+        <h1>FreedomXWallet</h1>
+        <p>Your Secure, Non-Custodial Gateway to Web3</p>
+        <a href="https://testflight.apple.com/join/fJDywugP" target="_blank" class="cta-button">Join iOS TestFlight</a>
+        <p>Available on iOS and Android</p>
+    </section>
 
-.tos-container {
-    background: linear-gradient(to bottom, #111, #222);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-}
+    <section id="features">
+        <h2>Why Choose FreedomXWallet?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-link"></i>
+                <h3>Non-Custodial</h3>
+                <p>You control your private keys and assets. FreedomXWallet never stores your funds.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile First</h3>
+                <p>Available on iOS (TestFlight) and Android for seamless on-the-go access.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-exchange-alt"></i>
+                <h3>Built-in Swap</h3>
+                <p>Swap tokens directly in the app with low fees via integrated DEXs.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Advanced Security</h3>
+                <p>Biometric authentication and hardware wallet support for maximum protection.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Portfolio Tracking</h3>
+                <p>Real-time analytics and NFT management at your fingertips.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-globe"></i>
+                <h3>dApp Browser</h3>
+                <p>Explore and interact with Web3 apps securely within the wallet.</p>
+            </div>
+        </div>
+    </section>
 
-.tos-container h3 {
-    color: var(--secondary-color);
-    font-size: 1.8rem;
-    margin-top: 2rem;
-}
+    <section id="security">
+        <h2>Uncompromising Security</h2>
+        <p>FreedomXWallet is built with cutting-edge security to protect your digital assets.</p>
+        <div class="security-highlights">
+            <ul>
+                <li>End-to-end encryption for all transactions</li>
+                <li>Seed phrase backup with Shamir’s Secret Sharing</li>
+                <li>AI-powered threat detection for suspicious activities</li>
+                <li>Regular third-party security audits</li>
+            </ul>
+        </div>
+    </section>
 
-.tos-container ul {
-    list-style: none;
-    padding-left: 1rem;
-}
+    <section id="integrations">
+        <h2>Trusted Integrations</h2>
+        <p>We partner with leading platforms to enhance your Web3 experience.</p>
+        <div class="integrations-grid">
+            <div class="integration-card">
+                <h3>MoonPay</h3>
+            </div>
+            <div class="integration-card">
+                <h3>Transak</h3>
+            </div>
+            <div class="integration-card">
+                <h3>Uniswap</h3>
+            </div>
+            <div class="integration-card">
+                <h3>OpenSea</h3>
+            </div>
+        </div>
+    </section>
 
-.tos-container li {
-    margin-bottom: 1rem;
-    position: relative;
-    padding-left: 2rem;
-}
+    <section id="download">
+        <h2>Download FreedomXWallet</h2>
+        <p>Get started with our non-custodial wallet on iOS and Android.</p>
+        <a href="https://testflight.apple.com/join/fJDywugP" target="_blank" class="cta-button">Join iOS TestFlight</a>
+        <p>Android App Coming Soon!</p>
+    </section>
 
-.tos-container li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-}
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Reach out to us for support or inquiries.</p>
+        <div class="contact-form">
+            <form action="mailto:support@freedomxwallet.com" method="post" enctype="text/plain">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <p><strong>Address:</strong> 1309 Coffeen Ave, Sheridan, WY 82801<br>
+           <strong>Email:</strong> <a href="mailto:support@freedomxwallet.com">support@freedomxwallet.com</a></p>
+    </section>
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #222;
-    margin-top: 2rem;
-}
+    <section id="privacy">
+        <h2>Privacy Policy</h2>
+        <div class="tos-container">
+            <p><strong>Last Updated: August 12, 2025</strong></p>
+            <p>FreedomXWallet ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we handle your information when using our non-custodial wallet application and website (collectively, the "Services").</p>
+            <h3>1. Information We Collect</h3>
+            <p>As a non-custodial wallet, we do not store your private keys or digital assets. We may collect:</p>
+            <ul>
+                <li><strong>Personal Information:</strong> Name, email, or contact details when you reach out or use third-party processors.</li>
+                <li><strong>KYC Data:</strong> Minimal data from payment processors like MoonPay and Transak for fiat-to-crypto transactions.</li>
+                <li><strong>Usage Data:</strong> IP addresses, device IDs, and analytics to improve functionality.</li>
+            </ul>
+            <h3>2. How We Use Your Information</h3>
+            <p>We use information to:</p>
+            <ul>
+                <li>Provide and enhance the Services</li>
+                <li>Respond to inquiries and provide support</li>
+                <li>Comply with AML/KYC regulations via third-party processors</li>
+                <li>Analyze usage for optimization</li>
+            </ul>
+            <h3>3. Information Sharing</h3>
+            <p>We share data only with:</p>
+            <ul>
+                <li>Third-party processors (e.g., MoonPay, Transak) for fiat transactions</li>
+                <li>Legal authorities when required</li>
+            </ul>
+            <h3>4. Data Security</h3>
+            <p>We use industry-standard encryption, but you are responsible for securing your private keys.</p>
+            <h3>5. Your Rights</h3>
+            <p>You may access, correct, or delete your personal information. Contact us at support@freedomxwallet.com.</p>
+        </div>
+    </section>
 
-footer a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
+    <section id="terms">
+        <h2>Terms of Service</h2>
+        <div class="tos-container">
+            <p><strong>Last Updated: August 12, 2025</strong></p>
+            <p>These Terms of Service ("Terms") govern your use of FreedomXWallet, a non-custodial software wallet by FreedomX.tech ("we," "us," or "our").</p>
+            <h3>1. Eligibility</h3>
+            <p>You must be 18+, not in a sanctioned jurisdiction, and comply with applicable laws.</p>
+            <h3>2. Non-Custodial Wallet</h3>
+            <p>You control your private keys and assets. We do not have access to or custody of your funds.</p>
+            <h3>3. User Responsibilities</h3>
+            <p>You agree not to use the Services for unlawful activities, including money laundering or fraud.</p>
+            <h3>4. Third-Party Services</h3>
+            <p>Fiat-to-crypto transactions use third-party processors (e.g., MoonPay, Transak). You must comply with their terms.</p>
+            <h3>5. Disclaimer</h3>
+            <p>Services are provided "as is." We are not liable for asset loss due to user error or external factors.</p>
+            <h3>6. Indemnification</h3>
+            <p>You indemnify us against claims from misuse of the Services.</p>
+            <h3>7. Governing Law</h3>
+            <p>These Terms are governed by Wyoming, USA law. Disputes are resolved via arbitration in Delaware, USA.</p>
+            <p>Contact: support@freedomxwallet.com</p>
+        </div>
+    </section>
 
-footer a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-    #home h1 { font-size: 3rem; }
-    nav { flex-direction: column; }
-    .logo-container { margin-bottom: 1rem; }
-    .datetime { margin-left: 0; margin-bottom: 1rem; }
-    nav ul { flex-direction: column; }
-    nav ul li { margin: 0.5rem 0; }
-}
+    <footer>
+        <p>&copy; 2025 FreedomXWallet. All rights reserved.<br>
+           1309 Coffeen Ave, Sheridan, WY 82801 | <a href="mailto:support@freedomxwallet.com">support@freedomxwallet.com</a><br>
+           <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
