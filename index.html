@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreedomXWallet</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
 </head>
@@ -220,3 +222,25 @@
     </script>
 </body>
 </html>
+```
+
+### Verification Steps
+To confirm the CSS is working with the HTML:
+1. **File Structure**: Place `index.html` and `styles.css` (from the previous response, artifact_id: `66e502c1-f236-4ad6-8923-7285cf0ababc`) in the same directory.
+2. **Image Assets**: Ensure the image files (`logo.png`, `bitcoin.png`, `ethereum.png`, `solana.png`, `uniswap.png`, `opensea.png`) are in the same directory or update their paths in `index.html` if they’re in a subfolder.
+3. **Test Locally**:
+   - Open a terminal in the directory containing the files.
+   - Run a local server: `python -m http.server 8000`.
+   - Open a browser and navigate to `http://localhost:8000`.
+4. **Check Console**: Open the browser’s developer tools (F12 or right-click > Inspect) and check the Console tab for errors (e.g., “Failed to load resource: styles.css”).
+5. **Clear Cache**: If styles still don’t apply, clear the browser cache or test in incognito mode.
+
+### If You Meant Inline CSS
+If you intended for the CSS to be embedded directly in the `index.html` file (instead of a separate `styles.css` file), I can provide an updated version with the CSS included in a `<style>` tag within the `<head>`. However, keeping CSS in a separate file is generally better for maintainability and performance. Please confirm if you want the CSS embedded in `index.html` instead, and I’ll provide that version.
+
+### Additional Notes
+- The `styles.css` file from the previous response (artifact_id: `66e502c1-f236-4ad6-8923-7285cf0ababc`) is designed to work with the provided `index.html`. It includes styles for the futuristic Web3 aesthetic, such as neon colors, glitch animations, and enhanced visibility for the Bitcoin image.
+- The datetime in the header should now correctly display in EST (e.g., “Tuesday, August 19, 2025, 12:51:XX PM EDT”) and update every second, as implemented in the JavaScript.
+- If you’re still experiencing issues, please share specific symptoms (e.g., which elements lack styling, any console errors) or confirm the file structure, and I’ll provide further tailored assistance.
+
+Let me know if you need the CSS embedded in `index.html`, additional troubleshooting, or any other modifications!
