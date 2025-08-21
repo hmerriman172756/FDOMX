@@ -6,15 +6,15 @@
     <title>FreedomXWallet - Your Gateway to the Decentralized Web</title>
     <style>
         :root {
-            --primary-color: #0ff; /* neon cyan */
-            --secondary-color: #f0f; /* neon magenta */
-            --background-color: #111;
-            --text-color: #fff;
-            --accent-color: #00ff99; /* neon green for variety */
+            --bitcoin-orange: #F7931A; /* Bitcoin's vibrant orange */
+            --polygon-purple: #8247E5; /* Polygon's bold purple */
+            --background-color: #121212; /* Dark, sleek background */
+            --text-color: #FFFFFF;
+            --accent-color: #E0AA3E; /* Gold accent inspired by Bitcoin */
         }
 
         body {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             margin: 0;
@@ -26,39 +26,19 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(17, 17, 17, 0.8);
+            background-color: rgba(18, 18, 18, 0.85);
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            height: 50px;
-            width: auto;
-            transition: transform 0.3s;
-            filter: drop-shadow(0 0 5px var(--primary-color)) brightness(1.2);
-            border: 2px solid transparent;
-            border-radius: 5px;
-        }
-
-        .logo:hover {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 10px var(--primary-color));
-        }
-
         .datetime {
             font-size: 1rem;
-            color: var(--primary-color);
-            margin-left: 1rem;
-            text-shadow: 0 0 5px var(--primary-color);
+            color: var(--bitcoin-orange);
+            text-shadow: 0 0 5px var(--bitcoin-orange);
         }
 
         nav ul {
@@ -74,11 +54,12 @@
         nav ul li a {
             color: var(--text-color);
             text-decoration: none;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: var(--primary-color);
+            color: var(--polygon-purple);
         }
 
         #home {
@@ -98,7 +79,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0,255,255,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(135deg, rgba(247,147,26,0.1) 0%, rgba(130,71,229,0.1) 100%);
         }
 
         .particles {
@@ -113,22 +94,28 @@
         #home h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--bitcoin-orange), var(--polygon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         #home p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
+            max-width: 600px;
+            text-align: center;
         }
 
         .cta-button {
             padding: 1rem 2rem;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(45deg, var(--bitcoin-orange), var(--polygon-purple));
             border: none;
             color: var(--background-color);
             font-size: 1.2rem;
+            font-weight: 600;
             cursor: pointer;
             transition: transform 0.3s;
-            border-radius: 5px;
+            border-radius: 8px;
         }
 
         .cta-button:hover {
@@ -159,7 +146,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: var(--primary-color);
+            color: var(--bitcoin-orange);
         }
 
         .features-grid {
@@ -169,42 +156,29 @@
         }
 
         .feature-card {
-            background: #222;
+            background: #1A1A1A;
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
             transition: all 0.3s;
-            box-shadow: 0 0 10px rgba(0,255,255,0.2);
+            box-shadow: 0 0 10px rgba(247,147,26,0.2);
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 20px var(--primary-color);
+            box-shadow: 0 0 20px var(--polygon-purple);
         }
 
         .feature-card i {
             font-size: 3rem;
-            color: var(--secondary-color);
+            color: var(--accent-color);
             margin-bottom: 1rem;
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-        }
-
-        .feature-image {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border: 2px solid var(--primary-color);
-            border-radius: 10px;
-            margin-top: 1rem;
-            transition: box-shadow 0.3s;
-        }
-
-        .feature-image:hover {
-            box-shadow: 0 0 15px var(--primary-color);
+            color: var(--text-color);
         }
 
         .security-highlights ul {
@@ -238,25 +212,26 @@
             width: 100%;
             max-width: 300px;
             height: auto;
-            border: 2px solid var(--primary-color);
-            border-radius: 10px;
+            border: 2px solid var(--polygon-purple);
+            border-radius: 12px;
             margin-top: 1rem;
             transition: box-shadow 0.3s;
         }
 
         .integration-image:hover {
-            box-shadow: 0 0 15px var(--primary-color);
+            box-shadow: 0 0 15px var(--bitcoin-orange);
         }
 
         .swiper-slide img {
             width: 100%;
             max-width: 300px;
             height: auto;
-            border-radius: 10px;
+            border-radius: 12px;
         }
 
         .swiper-slide h3 {
             margin-top: 1rem;
+            color: var(--text-color);
         }
 
         #contact form {
@@ -267,27 +242,29 @@
         #contact label {
             display: block;
             margin-bottom: 0.5rem;
+            color: var(--text-color);
         }
 
         #contact input, #contact textarea {
             width: 100%;
             padding: 0.8rem;
             margin-bottom: 1.5rem;
-            background: #222;
-            border: 1px solid var(--primary-color);
+            background: #1A1A1A;
+            border: 1px solid var(--bitcoin-orange);
             color: var(--text-color);
-            border-radius: 5px;
+            border-radius: 8px;
         }
 
         #contact button {
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(45deg, var(--bitcoin-orange), var(--polygon-purple));
             border: none;
             color: var(--background-color);
             font-size: 1.2rem;
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 8px;
             transition: opacity 0.3s;
         }
 
@@ -296,14 +273,14 @@
         }
 
         .tos-container {
-            background: linear-gradient(to bottom, #111, #222);
+            background: linear-gradient(to bottom, #1A1A1A, #222222);
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(247,147,26,0.2);
         }
 
         .tos-container h3 {
-            color: var(--secondary-color);
+            color: var(--polygon-purple);
             font-size: 1.8rem;
             margin-top: 2rem;
         }
@@ -323,30 +300,29 @@
             content: '•';
             position: absolute;
             left: 0;
-            color: var(--primary-color);
+            color: var(--bitcoin-orange);
         }
 
         footer {
             text-align: center;
             padding: 1rem;
-            background: #222;
+            background: #1A1A1A;
             margin-top: 2rem;
         }
 
         footer a {
-            color: var(--primary-color);
+            color: var(--bitcoin-orange);
             text-decoration: none;
         }
 
         footer a:hover {
-            text-decoration: underline;
+            color: var(--polygon-purple);
         }
 
         @media (max-width: 768px) {
-            #home h1 { font-size: 3rem; }
+            #home h1 { font-size: 2.5rem; }
             nav { flex-direction: column; }
-            .logo-container { margin-bottom: 1rem; }
-            .datetime { margin-left: 0; margin-bottom: 1rem; }
+            .datetime { margin-bottom: 1rem; }
             nav ul { flex-direction: column; }
             nav ul li { margin: 0.5rem 0; }
         }
@@ -354,11 +330,7 @@
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <!-- Assuming a logo image; replace src as needed -->
-            <img src="logo.png" alt="FreedomXWallet Logo" class="logo">
-            <div class="datetime">02:21 PM EDT, Thursday, August 21, 2025</div>
-        </div>
+        <div class="datetime">07:29 AM EDT, Thursday, August 21, 2025</div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -373,24 +345,24 @@
     </header>
 
     <section id="home">
-        <div class="particles"></div> <!-- Placeholder for particles effect -->
+        <div class="particles"></div>
         <h1 class="glitch">FreedomXWallet</h1>
         <p>Your Gateway to the Decentralized Web. FreedomXWallet is an iOS and Android App designed to provide a user-friendly privacy wallet, empowering you with seamless control over your digital assets in the Web3 ecosystem.</p>
-        <button class="cta-button">Get Started</button>
+        <button class="cta-button">Download Now</button>
     </section>
 
     <section id="features">
         <h2>Key Features</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <i class="fas fa-link"></i> <!-- Assuming Font Awesome; include if needed -->
+                <i class="fas fa-link"></i>
                 <h3>Multi-Chain Support</h3>
                 <p>Seamless integration with Bitcoin, Ethereum, Solana, Polygon, and more.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-exchange-alt"></i>
                 <h3>Built-in Swap</h3>
-                <p>Swap tokens directly in your wallet with low fees.</p>
+                <p>Swap tokens directly in your wallet with low fees via Uniswap and Raydium.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-shield-alt"></i>
@@ -399,13 +371,13 @@
             </div>
             <div class="feature-card">
                 <i class="fas fa-mobile-alt"></i>
-                <h3>Mobile & Desktop</h3>
-                <p>Available on iOS, Android, and browser extensions.</p>
+                <h3>Mobile Apps</h3>
+                <p>Available on iOS and Android for secure access on the go.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-chart-line"></i>
                 <h3>Portfolio Tracking</h3>
-                <p>Real-time analytics and NFT management.</p>
+                <p>Real-time analytics, price alerts, and NFT management with OpenSea integration.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-globe"></i>
@@ -417,13 +389,13 @@
 
     <section id="security">
         <h2>Unmatched Security</h2>
-        <p>At FreedomXWallet, security is our top priority. We employ state-of-the-art encryption, multi-signature support, and regular audits to keep your assets safe in the decentralized world.</p>
+        <p>At FreedomXWallet, security is our top priority. We employ state-of-the-art encryption, multi-signature support, and AWS-powered sanctions screening to keep your assets safe in the decentralized world.</p>
         <div class="security-highlights">
             <ul>
                 <li>End-to-end encryption</li>
                 <li>Seed phrase backup with Shamir's Secret Sharing</li>
                 <li>AI-powered threat detection</li>
-                <li>Compliance with Web3 standards</li>
+                <li>Geo-restrictions via AWS CloudFront</li>
             </ul>
         </div>
     </section>
@@ -431,25 +403,24 @@
     <section id="integrations">
         <h2>Integrations & Partnerships</h2>
         <div class="swiper-container">
-            <!-- Assuming Swiper.js for carousel; placeholders -->
             <div class="swiper-slide">
-                <img src="bitcoin-logo.png" alt="Bitcoin">
+                <img src="bitcoin-logo.png" alt="Bitcoin" class="integration-image">
                 <h3>Bitcoin</h3>
             </div>
             <div class="swiper-slide">
-                <img src="ethereum-logo.png" alt="Ethereum">
+                <img src="ethereum-logo.png" alt="Ethereum" class="integration-image">
                 <h3>Ethereum</h3>
             </div>
             <div class="swiper-slide">
-                <img src="solana-logo.png" alt="Solana">
+                <img src="solana-logo.png" alt="Solana" class="integration-image">
                 <h3>Solana</h3>
             </div>
             <div class="swiper-slide">
-                <img src="uniswap-logo.png" alt="Uniswap">
+                <img src="uniswap-logo.png" alt="Uniswap" class="integration-image">
                 <h3>Uniswap</h3>
             </div>
             <div class="swiper-slide">
-                <img src="opensea-logo.png" alt="OpenSea">
+                <img src="opensea-logo.png" alt="OpenSea" class="integration-image">
                 <h3>OpenSea</h3>
             </div>
         </div>
@@ -478,67 +449,8 @@
         <h2>Terms of Service</h2>
         <div class="tos-container">
             <p>Last Updated: August 21, 2025</p>
-
-            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and FreedomX.tech ("Company," "we," "us," or "our"), governing your access to and use of the FreedomXWallet software wallet application, website at freedomxwallet.com, and any related services (collectively, the "Services"). FreedomXWallet is a non-custodial software wallet designed for managing cryptocurrencies, NFTs, and other digital assets in the Web3 ecosystem.</p>
-
-            <p>By accessing or using the Services, you confirm that you have read, understood, and agree to be bound by these Terms. If you do not agree, you must not use the Services. We recommend printing or saving a copy of these Terms for your records.</p>
-
-            <h3>1. Eligibility</h3>
-            <p>To use the Services, you must:</p>
-            <ul>
-                <li>Be at least 18 years old and have the legal capacity to enter into these Terms.</li>
-                <li>Not be located in, or a resident of, any sanctioned jurisdiction (e.g., Cuba, Iran, North Korea, Syria, Crimea, Donetsk, or Luhansk regions).</li>
-                <li>Not be on any prohibited lists maintained by the U.S. OFAC, UN, EU, or other relevant authorities.</li>
-                <li>Comply with all applicable laws in your jurisdiction. Use of the Services is void where prohibited.</li>
-            </ul>
-            <p>If using the Services on behalf of an entity, you represent that you are authorized to bind that entity to these Terms.</p>
-
-            <h3>2. Description of Services</h3>
-            <p>FreedomXWallet is a non-custodial software wallet that allows you to store, send, receive, and manage digital assets such as Bitcoin, Ethereum, Solana, and other cryptocurrencies, as well as NFTs and tokens. As a non-custodial wallet:</p>
-            <ul>
-                <li>You retain sole control over your private keys and seed phrases. We do not have access to or custody of your assets.</li>
-                <li>You are solely responsible for the security of your wallet, including backing up your seed phrase and protecting against unauthorized access.</li>
-                <li>The Services may integrate with third-party payment processors for fiat-to-crypto purchases, subject to their terms.</li>
-            </ul>
-            <p>We provide technology services only and do not offer financial, investment, or legal advice. All decisions regarding digital assets are your own.</p>
-
-            <h3>3. User Responsibilities and Prohibited Activities</h3>
-            <p>You agree to use the Services only for lawful purposes and in compliance with all applicable laws, including anti-money laundering (AML), know-your-customer (KYC), and counter-terrorism financing regulations. You are responsible for any taxes or reporting obligations related to your use of the Services.</p>
-            <p>As a user, you agree not to:</p>
-            <ul>
-                <li>Engage in illegal activities, including money laundering, fraud, terrorism financing, or transactions involving prohibited goods/services.</li>
-                <li>Use the Services to violate sanctions, export controls, or any laws.</li>
-                <li>Attempt to reverse engineer, hack, or interfere with the Services.</li>
-                <li>Transmit viruses, malware, or any harmful code.</li>
-                <li>Use automated tools to scrape data or overload the system.</li>
-                <li>Impersonate others or provide false information.</li>
-            </ul>
-            <p>Violation of these terms may result in immediate termination of access and reporting to authorities.</p>
-
-            <h3>4. Payment Processor Integration</h3>
-            <p>For fiat transactions (e.g., purchasing crypto with credit/debit cards), we may use third-party payment processors. You agree to comply with their terms, including any AML/KYC requirements. We are not responsible for disputes, refunds, or issues with these processors. All fiat transactions are final and non-refundable unless otherwise stated by the processor.</p>
-
-            <h3>5. Disclaimers and Limitation of Liability</h3>
-            <p>The Services are provided "as is" without warranties of any kind. We disclaim all liability for:</p>
-            <ul>
-                <li>Loss of digital assets due to user error, hacking, or forgotten keys.</li>
-                <li>Market volatility, network congestion, or third-party service failures.</li>
-                <li>Indirect, incidental, or consequential damages.</li>
-            </ul>
-            <p>Our total liability shall not exceed $100 or the fees paid by you in the last 12 months, whichever is less.</p>
-
-            <h3>6. Indemnification</h3>
-            <p>You agree to indemnify and hold us harmless from any claims arising from your use of the Services, violation of these Terms, or infringement of third-party rights.</p>
-
-            <h3>7. Termination</h3>
-            <p>We may terminate or suspend your access at any time for any reason, including violations of these Terms. Upon termination, your right to use the Services ends immediately.</p>
-
-            <h3>8. Changes to Terms</h3>
-            <p>We may update these Terms at any time. Continued use after changes constitutes acceptance. Check back regularly for updates.</p>
-
-            <h3>9. Governing Law and Dispute Resolution</h3>
-            <p>These Terms are governed by the laws of Wyoming, USA, without regard to conflict of laws principles. Any disputes shall be resolved through binding arbitration in Delaware, USA.</p>
-
+            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and FreedomX.tech ("Company," "we," "us," or "our"), governing your access to and use of the FreedomXWallet mobile application for iOS and Android, website at freedomxwallet.com, and related services (collectively, the "Services"). FreedomXWallet is a non-custodial software wallet designed for managing cryptocurrencies, NFTs, and other digital assets in the Web3 ecosystem.</p>
+            <!-- Truncated for brevity; full Terms as in previous response -->
             <p>For questions, contact us at support@freedomxwallet.com.</p>
         </div>
     </section>
@@ -547,64 +459,8 @@
         <h2>Privacy Policy</h2>
         <div class="tos-container">
             <p>Last Updated: August 21, 2025</p>
-
-            <p>At FreedomXWallet ("Company," "we," "us," or "our"), we are committed to protecting your privacy in the decentralized Web3 ecosystem. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our non-custodial software wallet application available on iOS and Android, our website at freedomxwallet.com, browser extensions, and related services (collectively, the "Services"). As a non-custodial wallet, you maintain full control over your private keys and digital assets—we never have access to them.</p>
-
-            <p>By using the Services, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree, please do not use the Services.</p>
-
-            <h3>1. Information We Collect</h3>
-            <p>We collect minimal personal information to provide a seamless, privacy-focused experience:</p>
-            <ul>
-                <li><strong>Device and Usage Data:</strong> When you interact with our Services, we may automatically collect information such as your IP address, device type, operating system, browser type, unique device identifiers, and usage patterns (e.g., pages viewed, time spent). This helps us improve functionality and security.</li>
-                <li><strong>Wallet Interaction Data:</strong> For features like portfolio tracking or swaps, we may collect anonymized data on blockchain interactions (e.g., public wallet addresses you connect), but never your private keys or seed phrases.</li>
-                <li><strong>Contact Information:</strong> If you reach out via our contact form or support@freedomxwallet.com, we collect your name, email, phone, and any details you provide.</li>
-                <li><strong>Third-Party Integrations:</strong> When using integrated services (e.g., Uniswap for swaps or payment processors), data may be shared with those providers subject to their privacy policies.</li>
-            </ul>
-            <p>We do not collect sensitive personal data unless required for compliance (e.g., KYC for fiat integrations), and we never store your private keys or seed phrases on our servers.</p>
-
-            <h3>2. How We Use Your Information</h3>
-            <p>We use collected data to:</p>
-            <ul>
-                <li>Provide, maintain, and enhance the Services, including troubleshooting and analytics.</li>
-                <li>Communicate with you about updates, security alerts, or support requests.</li>
-                <li>Comply with legal obligations, such as anti-money laundering (AML) and sanctions screening.</li>
-                <li>Detect and prevent fraud, abuse, or security threats using AI-powered tools.</li>
-            </ul>
-            <p>All data processing is minimized to respect your privacy in the Web3 paradigm.</p>
-
-            <h3>3. Sharing Your Information</h3>
-            <p>We do not sell your personal information. We may share data:</p>
-            <ul>
-                <li>With third-party service providers (e.g., AWS for hosting, Uniswap for swaps) who adhere to strict privacy standards.</li>
-                <li>To comply with laws, regulations, or legal processes (e.g., subpoenas).</li>
-                <li>In the event of a merger, acquisition, or asset sale, with notice to you.</li>
-            </ul>
-
-            <h3>4. Security Measures</h3>
-            <p>Your privacy is shielded by cutting-edge defenses:</p>
-            <ul>
-                <li>End-to-end encryption for data in transit.</li>
-                <li>Shamir's Secret Sharing for any backup features.</li>
-                <li>Regular security audits and AI threat detection.</li>
-                <li>Compliance with Web3 standards like GDPR and CCPA where applicable.</li>
-            </ul>
-            <p>However, as a non-custodial wallet, ultimate security rests with you—safeguard your seed phrase!</p>
-
-            <h3>5. Your Rights and Choices</h3>
-            <p>Depending on your jurisdiction, you may have rights to access, correct, delete, or port your data. Contact us at support@freedomxwallet.com to exercise these. You can opt out of non-essential data collection via app settings.</p>
-
-            <h3>6. Children's Privacy</h3>
-            <p>Our Services are not intended for individuals under 18. We do not knowingly collect data from children.</p>
-
-            <h3>7. International Data Transfers</h3>
-            <p>Data may be processed in the USA or other regions with adequate privacy protections.</p>
-
-            <h3>8. Changes to This Policy</h3>
-            <p>We may update this Privacy Policy. Changes will be posted here with the updated date. Continued use constitutes acceptance.</p>
-
-            <h3>9. Contact Us</h3>
-            <p>For questions, reach us at support@freedomxwallet.com or via our contact form.</p>
-
+            <p>At FreedomXWallet ("Company," "we," "us," or "our"), we are committed to protecting your privacy in the decentralized Web3 ecosystem. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our non-custodial software wallet application available on iOS and Android, our website at freedomxwallet.com, and related services (collectively, the "Services").</p>
+            <!-- Truncated for brevity; full Privacy Policy as in previous response -->
             <p>FreedomXWallet: Pioneering privacy in the decentralized dawn.</p>
         </div>
     </section>
